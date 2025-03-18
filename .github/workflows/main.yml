@@ -13,7 +13,6 @@ jobs:
       - name: hello
         env:
           VAR_3: from step
-          VAR_1: var_1 from step
         run: |
           echo VAR_1: $VAR_1
           echo VAR_1: ${{ env.VAR_1 }}
