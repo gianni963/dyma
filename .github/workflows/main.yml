@@ -10,7 +10,7 @@ jobs:
       VAR_2: from job
     runs-on: ubuntu-latest
     steps:
-      - name: hello
+      - name:  ${{ env.VAR_1 }}
         env:
           VAR_3: from step
         run: |
