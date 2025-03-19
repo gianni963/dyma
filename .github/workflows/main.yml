@@ -8,6 +8,7 @@ jobs:
       - run: echo build
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - run: echo deploy in prod
