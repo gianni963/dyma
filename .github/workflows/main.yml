@@ -1,4 +1,4 @@
-ho name:  Mon premier workflow
+name:  Mon premier workflow
 on: [push]
   
 jobs:
