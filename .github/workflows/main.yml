@@ -12,7 +12,7 @@ jobs:
       - id: step2
         run: | 
           echo $FROM_STEP_1
-          echo $ {{ env.FROM_STEP_1 }}
+          echo ${{ env.FROM_STEP_1 }}
       
 
   # deploy:
