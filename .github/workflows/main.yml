@@ -9,6 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo JOB DONE
+      - run: echo traitement image
 
 
