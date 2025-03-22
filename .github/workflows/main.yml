@@ -4,6 +4,11 @@ on:
     branches:
       - main
       - feature
+    paths:
+      - '**.png'
+    paths-ignore:
+      - 'doc/**'
+      
     
 jobs:
   build:
