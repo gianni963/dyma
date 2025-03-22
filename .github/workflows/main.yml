@@ -1,20 +1,14 @@
 name:  Mon premier workflow
-on: [push]
-  
+on: 
+  push:
+    branches:
+      - main
+      - feature
+    
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs: 
-      FROM_BUILD: ${{ steps.step1.outputs.FROM_STEP_1 }}
     steps:
-      - id: step1
-        run: | 
-          echo $GITHUB_OUTPUT
-          echo FROM_STEP_1=value_step_1 >> $GITHUB_OUTPUT
+      - run: echo JOB DONE
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ needs.build.outputs.FROM_BUILD }}
-      
+
