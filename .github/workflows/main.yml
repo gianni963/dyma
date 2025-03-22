@@ -7,7 +7,7 @@ on:
     paths:
       - '**.png'
       - '!doc/**'
-    #paths-ignore:
+    #  paths-ignore:
      # - 'doc/**'
       
     
