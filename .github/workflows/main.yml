@@ -1,18 +1,10 @@
-name:  Mon premier workflow
-on: 
-  push:
-    #  branches:
-    #   - main
-    #  - feature
-    #  branches-ignore:
-    # - main
-    paths:
-      - '**.png'
-    
+name: pull_request_flow
+on:  
+  pull_request:
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo traitement image
-
+      - run: echo pull request
+    
 
