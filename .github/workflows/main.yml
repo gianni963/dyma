@@ -6,8 +6,9 @@ on:
       - feature
     paths:
       - '**.png'
-    paths-ignore:
-      - 'doc/**'
+      - '!doc/**'
+    #paths-ignore:
+     # - 'doc/**'
       
     
 jobs:
