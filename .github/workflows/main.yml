@@ -5,9 +5,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          pwd
-        shell: sh
-      - run: |
-          pwd
-        shell: pwsh
+      - run: ls
