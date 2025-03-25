@@ -15,4 +15,4 @@ jobs:
         uses: action/checkout@v4
       - name: install depdendencies
         run: npm install
-        working-directory: ./github-actions
+        working-directory: ./vite-project
