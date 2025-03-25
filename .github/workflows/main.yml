@@ -2,11 +2,14 @@ name: pull_request_flow
 on: push
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo fruit=pomme >> $GITHUB_OUTPUT
-        id: step1
-      - run: echo ::error file=unfichier.txt,line=1,endLine=2,col=5::fruit is ${{ steps.step1.outputs.fruit }} should be poire
-        if: steps.step1.outputs.fruit != 'poire'
+      - run: |
+          echo ::group::mon groupe
+          echo 1
+          echo 2
+          echo 3
+          echo 4
+          echo ::endgroup::
     
