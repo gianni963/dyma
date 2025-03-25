@@ -1,8 +1,18 @@
 name: pull_request_flow
 on: push
+defaults:
+  run:
+    shell: bash
+    working-directory: ./vite-project
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: ls
+      - name: install node.js
+        uses: actions/setup-node@v4
+      - name: fetch repository
+        uses: action/checkout@v4
+      - name: install depdendencies
+        run: npm install
+        working-directory: ./vite-project
