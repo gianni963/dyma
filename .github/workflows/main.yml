@@ -7,6 +7,6 @@ jobs:
     steps:
       - run: echo fruit=pomme >> $GITHUB_OUTPUT
         id: step1
-      - run: echo ::error::fruit is ${{ steps.step1.outputs.fruit }} should be poire
+      - run: echo ::error file=unfichier.txt,line=1,endLine=2,col=5::fruit is ${{ steps.step1.outputs.fruit }} should be poire
         if: steps.step1.outputs.fruit != 'poire'
     
