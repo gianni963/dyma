@@ -7,9 +7,9 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        include:
-          - cloud: ovh
-            endpoint: url1
-            os: ubuntu-latest
+        vers: [12, 13]
+        exclude:
+          - os: windows-latest
+            vers: 12
     steps:
-      - run: echo ${{ matrix.cloud }} ${{ matrix.endpoint }} ${{ matrix.os }}
+      - run: echo ${{ matrix.os }} ${{ matrix.vers }}
