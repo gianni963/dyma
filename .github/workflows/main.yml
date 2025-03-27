@@ -2,13 +2,11 @@ name: pull_request_flow
 on: push
 
 jobs:
-  build:
+  deploy-production:
     runs-on: ubuntu-latest
-    concurrency:
-      group: waitform
-      cancel-in-progress: true
+    environment:
+      name: production
+      url: https://test.fr
     steps:
       - run: |
-          echo very long step
-          sleep 100
-          echo Done
+          echo Deploy to producion
