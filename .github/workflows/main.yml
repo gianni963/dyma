@@ -4,7 +4,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    concurrency: waitforme
+    concurrency:
+      group: waitform
+      cancel-in-progress: true
     steps:
       - run: |
           echo very long step
