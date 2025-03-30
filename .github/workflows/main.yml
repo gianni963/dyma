@@ -5,33 +5,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install nodejs
-        uses: actions/setup-node@v3
-      - name: init cache
-        uses: actions/cache@v3
-        with:
-          key: ${{ runner.os}}-${{ hashFiles('./vite-project/package-lock.json') }}
-          path: ./vite-project/.npm
-      - name: install dependendices
-        working-directory: ./vite-project
-        run: npm ci --cache .npm --prefer-offline
-      - name: Build application
-        working-directory: ./vite-project
-        run: npm run build
-      - uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: ./vite-project/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: ./build
+      - run: echo $GITHUB_STEP_SUMMARY
       - run: |
-          ls
-          ls build
+          echo '# Je suis un titre' >> $GITHUB_STEP_SUMMARY
+          echo 'Je suis du contenu :rocket:' >> $GITHUB_STEP_SUMMARY
+          echo '' >> $GITHUB_STEP_SUMMARY
+          echo '- un' >> $GITHUB_STEP_SUMMARY
+          echo '- deux' >> $GITHUB_STEP_SUMMARY
+          echo '- trois' >> $GITHUB_STEP_SUMMARY
