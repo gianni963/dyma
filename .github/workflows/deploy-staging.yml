@@ -4,11 +4,11 @@ on:
     branches: staging
 
 jobs:
-  deploy-staging:
+  testdocker:
     runs-on: ubuntu-latest
-    environment:
-      name: staging
-      url: https://toto.fr
+    container:
+      image: node:16
     steps:
-      - run: |
-          echo Deploy to staging
+      - uses: actions/setup-node@v3
+      - run: ls -la
+      - run: npm-v
