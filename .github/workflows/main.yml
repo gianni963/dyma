@@ -11,4 +11,4 @@ jobs:
       image: node:18
     steps:
       - run: apt update && apt install redis-tools -y
-      - run: redis-cli -h ping
+      - run: redis-cli -h redis ping
