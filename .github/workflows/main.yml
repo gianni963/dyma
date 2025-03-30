@@ -8,4 +8,4 @@ jobs:
       image: node:16
     steps:
       - run: ls -la
-      - run: npm-v
+      - run: npm -v
