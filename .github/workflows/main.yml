@@ -2,11 +2,10 @@ name: pull_request_flow
 on: push
 
 jobs:
-  deploy-production:
+  testdocker:
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: https://test.fr
+    container:
+      image: node:16
     steps:
-      - run: |
-          echo Deploy to producion
+      - run: ls -la
+      - run: npm-v
