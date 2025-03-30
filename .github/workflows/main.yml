@@ -10,3 +10,16 @@ jobs:
         with:
           name: myfirstartifact
           path: ./test.txt
+
+  downloadartifact:
+    needs: testartifact
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: myfirstartifact
+          path: ./here
+      - run: |
+          ls
+          ls ./here
+          cat ./here/test.txt
