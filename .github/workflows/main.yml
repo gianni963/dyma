@@ -2,24 +2,36 @@ name: pull_request_flow
 on: push
 
 jobs:
-  testartifact:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 123 > test.txt
+      - uses: actions/checkout@v4
+      - name: Install nodejs
+        uses: actions/setup-node@v3
+      - name: init cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os}}-${{ hashFiles('./vite-project/package-lock.json') }}
+          path: ./vite-project/.npm
+      - name: install dependendices
+        working-directory: ./vite-project
+        run: npm ci --cache .npm --prefer-offline
+      - name: Build application
+        working-directory: ./vite-project
+        run: npm run build
       - uses: actions/upload-artifact@v4
         with:
-          name: myfirstartifact
-          path: ./test.txt
+          name: build
+          path: ./vite-project/dist
 
-  downloadartifact:
-    needs: testartifact
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: myfirstartifact
-          path: ./here
+          name: build
+          path: ./build
       - run: |
           ls
-          ls ./here
-          cat ./here/test.txt
+          ls build
